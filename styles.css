@@ -2,17 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Space Mono';
+  font-family: 'Space Mono', monospace;
 }
 
 body {
-  padding: 2rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.light-mode {
   background-color: #f6f8ff;
   color: #2b3442;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 2rem;
+  max-width: 730px;
+  margin: 0 auto;
 }
 
 .dark-mode {
@@ -24,7 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .app-title {
@@ -44,29 +43,31 @@ body {
 }
 
 .search-section {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
+}
+
+.dark-mode .search-section {
+  background-color: #1e2a47;
 }
 
 .search-input {
   flex-grow: 1;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
   border: none;
-  border-radius: 10px;
-  font-family: 'Space Mono', monospace;
+  background: transparent;
   font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: inherit;
 }
 
-.light-mode .search-input {
-  background-color: #ffffff;
-}
-
-.dark-mode .search-input {
-  background-color: #1e2a47;
-  color: #ffffff;
+.search-input::placeholder {
+  color: #697c9a;
 }
 
 .search-input:focus {
@@ -77,9 +78,8 @@ body {
   background: #0079ff;
   color: white;
   border: none;
-  padding: 0 1.5rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 10px;
-  font-family: 'Space Mono', monospace;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -89,18 +89,29 @@ body {
   background: #0062cc;
 }
 
-.hidden {
-  display: none;
+.clear-button {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: color 0.2s ease;
+}
+
+.clear-button:hover {
+  color: #ff0000;
+}
+
+.dark-mode .clear-button:hover {
+  color: #ff6b6b;
 }
 
 .profile-section {
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.light-mode .profile-section {
   background-color: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .dark-mode .profile-section {
@@ -109,13 +120,14 @@ body {
 
 .profile-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .profile-pic {
-  width: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
 }
 
@@ -132,6 +144,7 @@ body {
 .profile-info #username {
   color: #0079ff;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
 .profile-info #join-date {
@@ -139,50 +152,27 @@ body {
   font-size: 0.8rem;
 }
 
+.dark-mode .profile-info #join-date {
+  color: #a7b4cc;
+}
+
 .bio {
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   color: #4b6a9b;
   line-height: 1.5;
 }
 
 .dark-mode .bio {
-  color: #ffffff;
-}
-
-.clear-button {
-  position: absolute;
-  right: 120px;
-  background: transparent;
-  border: none;
-  color: #888;
-  font-size: 1.5rem;
-  cursor: pointer;
-  width: 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.clear-button:hover {
-  color: #ff0000;
-}
-
-.dark-mode .clear-button:hover {
-  color: #ff6b6b;
+  color: #a7b4cc;
 }
 
 .stats {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
-.light-mode .stats {
   background-color: #f6f8ff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem 0;
 }
 
 .dark-mode .stats {
@@ -191,6 +181,7 @@ body {
 
 .stat-item {
   text-align: center;
+  flex: 1;
 }
 
 .stat-label {
@@ -200,11 +191,11 @@ body {
 }
 
 .dark-mode .stat-label {
-  color: #ffffff;
+  color: #a7b4cc;
 }
 
 .stat-number {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -219,8 +210,41 @@ body {
   align-items: center;
   gap: 0.5rem;
   color: #4b6a9b;
+  font-size: 0.9rem;
 }
 
 .dark-mode .info-item {
-  color: #ffffff;
+  color: #a7b4cc;
+}
+
+.hidden {
+  display: none;
+}
+
+.no-results {
+  color: #f74646;
+  text-align: center;
+  margin: 1rem 0;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .extra-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
