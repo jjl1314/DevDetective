@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevDetective</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="light-mode">
+  <header class="header">
+    <h1 class="app-title">DevDetective</h1>
+    <div id="btn-mode" class="toggle-mode">
+      <span id="mode-text">DARK</span>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <section class="search-section">
+      <input
+        id="input"
+        class="search-input"
+        placeholder="Enter a GitHub username..."
+      />
+      <button id="clear" class="clear-button" title="Clear search">×</button>
+      <button id="submit" class="search-button">Search</button>
+    </section>
+
+    <section class="profile-section hidden" id="profile-container">
+      <div class="profile-header">
+        <img id="user-img" class="profile-pic" src="" alt="Avatar"/>
+        <div class="profile-info">
+          <h2 id="name">Name</h2>
+          <p id="username">@username</p>
+          <p id="join-date">Joined Date</p>
+        </div>
+      </div>
+      <p id="bio" class="bio">This profile has no bio</p>
+
+      <div class="stats">
+        <div class="stat-item">
+          <p class="stat-label">Repos</p>
+          <p id="repos" class="stat-number">0</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Followers</p>
+          <p id="followers" class="stat-number">0</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-label">Following</p>
+          <p id="following" class="stat-number">0</p>
+        </div>
+      </div>
+
+      <div class="extra-info">
+        <div class="info-item">
+          <span>Location: <span id="location">Not Available</span></span>
+        </div>
+        <div class="info-item">
+          <span>Blog: <span id="blog">Not Available</span></span>
+        </div>
+        <div class="info-item">
+          <span>Twitter: <span id="twitter">Not Available</span></span>
+        </div>
+        <div class="info-item">
+          <span>Company: <span id="company">Not Available</span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
